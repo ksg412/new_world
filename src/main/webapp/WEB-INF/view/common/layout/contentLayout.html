@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <title layout:title-pattern="$LAYOUT_TITLE : $CONTENT_TITLE">사용전점검</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <script type="text/javascript" th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"></script>
+        <script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.2/js/bootstrap.min.js}"></script>
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.2/css/bootstrap.min.css}"/>
+    </head>
+    <body>
+        <section layout:fragment="content">
+            <div>
+                <p>Layout Content</p>
+            </div>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorator="common/layout/defaultLayout">
+    <head>
+        <title>Sub title</title>
+    </head>
+
+    <body>
+        <section layout:fragment="content">
+            <p>main Content</p>
+            <span th:text="#{server.ccc}"/>
+            <ul>
+                <li><a href="#" th:href="@{/testPage/testPage}">공통기능</a></li>
+                <li><a href="#">개발중</a></li>
+                <li><a href="#">개발중</a></li>
+            </ul>
+        </section>
+    </body>
+</html>

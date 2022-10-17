@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <title layout:title-pattern="$LAYOUT_TITLE : $CONTENT_TITLE">사용전점검</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <th:block th:include="common/component/lib/lib" th:remove="tag"></th:block>
+    </head>
+    <body>
+        <header layout:fragment="header">
+            <div th:replace="common/component/header/defaultHeader.html :: div"></div>
+        </header>
+        <section layout:fragment="content">
+            <div>
+                <p>Layout Content</p>
+            </div>
+        </section>
+        <footer layout:fragment="footer">
+            <div th:replace="common/component/footer/defaultFooter.html :: div"></div>
+        </footer>
+    </body>
+</html>

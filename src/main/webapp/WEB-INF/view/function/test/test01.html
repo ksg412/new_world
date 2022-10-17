@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="common/layout/defaultLayout">
+<head>
+    <script type="text/javascript">
+        function testAjax(){
+            $.ajax({
+                url: "/test/ajax",// 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소
+                data: JSON.stringify({ name : "홍길동" }),  // HTTP 요청과 함께 서버로 보낼 데이터*/
+                success : function(data) {
+                    //$("<h1>").text(json.title).appendTo("body");
+                    //$("<div class=\"content\">").html(json.html).appendTo("body");
+                }
+            });
+        }
+    </script>
+</head>
+<body layout:fragment="content">
+    <div class="card m-5">
+        <div class="card-body">
+            <h5 class="card-title">ajax 쿼리 테스트</h5>
+            <button class="btn btn-primary" onclick="testAjax()">누르면 쿼리 실행</button>
+            <p class="card-text"></p>
+        </div>
+    </div>
+</body>
+</html>
