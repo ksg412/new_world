@@ -4,4 +4,11 @@
     <select id="test" resultType="String">
         select count(*) from A_CM_A0010
     </select>
+
+    <select id="getTbMapList" resultType="HashMap">
+        select
+            *
+        from tb_map
+        WHERE iId = 1
+    </select>
 </mapper>

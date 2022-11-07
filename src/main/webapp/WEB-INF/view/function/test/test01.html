@@ -7,8 +7,7 @@
                 url: "/test/ajax",// 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소
                 data: JSON.stringify({ name : "홍길동" }),  // HTTP 요청과 함께 서버로 보낼 데이터*/
                 success : function(data) {
-                    //$("<h1>").text(json.title).appendTo("body");
-                    //$("<div class=\"content\">").html(json.html).appendTo("body");
+                    console.log(data);
                 }
             });
         }

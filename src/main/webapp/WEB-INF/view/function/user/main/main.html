@@ -3,17 +3,31 @@
       layout:decorator="common/layout/defaultLayout">
     <head>
         <title>Sub title</title>
+        <script th:inline="javascript">
+            $(document).ready(function(){
+               var data = [[${data}]];
+               console.log(data);
+            });
+        </script>
     </head>
 
     <body>
         <section layout:fragment="content">
-            <p>main Content</p>
+            <main class="container">
+                <div class="bg-light p-5 rounded">
+                    <h1>Navbar example</h1>
+                    <p class="lead">This example is a quick exercise to illustrate how the top-aligned navbar works. As you scroll, this navbar remains in its original position and moves with the rest of the page.</p>
+                    <a class="btn btn-lg btn-primary" href="../components/navbar/" role="button">View navbar docs &raquo;</a>
+                </div>
+            </main>
+
+            <!--<p>main Content</p>
             <span th:text="#{server.ccc}"/>
             <ul>
                 <li><a href="#" th:href="@{/testPage/testPage}">공통기능</a></li>
                 <li><a href="#">개발중</a></li>
                 <li><a href="#">개발중</a></li>
-            </ul>
+            </ul>-->
         </section>
     </body>
 </html>

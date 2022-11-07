@@ -7,7 +7,7 @@
     </head>
     <body>
         <header layout:fragment="header">
-            <div th:replace="common/component/header/defaultHeader.html :: div"></div>
+            <div th:replace="common/component/header/defaultHeader.html :: body"></div>
         </header>
         <section layout:fragment="content">
             <div>
@@ -15,7 +15,7 @@
             </div>
         </section>
         <footer layout:fragment="footer">
-            <div th:replace="common/component/footer/defaultFooter.html :: div"></div>
+            <div th:replace="common/component/footer/defaultFooter.html :: body"></div>
         </footer>
     </body>
 </html>

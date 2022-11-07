@@ -14,7 +14,8 @@ public class LoginController {
 
     @RequestMapping("login")
     public String login(){
-        return "common/login/login";
+
+        return "function/login/login";
     }
 
     /*@RequestMapping("getMainByUser")
