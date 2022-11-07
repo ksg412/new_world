@@ -1,14 +1,11 @@
 <!DOCTYPE HTML>
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
     <body>
-        <style>
-            main > .container {
-                padding: 60px 15px 0;
-            }
-        </style>
-        <div class="footer mt-auto py-3 bg-light">
-            <div class="container">
-                <span class="text-muted">Place sticky footer content here.</span>
+        <div th:fragment="footer">
+            <div class="footer mt-auto py-3 bg-light">
+                <div class="container">
+                    <span class="text-muted">Place sticky footer content here.</span>
+                </div>
             </div>
         </div>
     </body>

@@ -18,8 +18,8 @@ public class MainController {
     public String main(ModelMap map) throws Exception{
         //String test01.html = mainService.test01.html();
         //System.out.println("test01.html : " + test01.html);
-        Map data = mainService.getTbMapList();
-        map.put("data",data);
+        /*Map data = mainService.getTbMapList();
+        map.put("data",data);*/
         return "function/user/main/main";
     }
 
