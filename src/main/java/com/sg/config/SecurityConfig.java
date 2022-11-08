@@ -1,6 +1,7 @@
 package com.sg.config;
 
 import com.sg.source.function.login.loginService.impl.CustomUserDetailServiceImpl;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,6 +17,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    private static final Logger logger = Logger.getLogger(SecurityConfig.class);
+
     @Autowired
     CustomUserDetailServiceImpl customUserDetailsService;
 
@@ -24,9 +27,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    @Autowired
-    public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(customUserDetailsService);
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(customUserDetailsService).passwordEncoder(passwordEncoder());
     }
 
     @Override
@@ -38,13 +41,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception
     {
-        String[] resources = new String[]{
+        /*String[] resources = new String[]{
                 "/js/**", "/css/**", "/resources/**", "/webjars/**"
-        };
+        };*/
+
+        logger.info("XXX configure HTTP User detail org.himanshu.service");
 
         http
+                //.csrf().disable()
                 .authorizeRequests()
-                .antMatchers(resources).permitAll()
+                //.antMatchers(resources).permitAll()
                 //.antMatchers("/admin/**").hasAnyRole("ADMIN")
                 //.antMatchers("/user/**").hasAnyRole("USER", "ADMIN")
                 .anyRequest()
@@ -52,6 +58,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginPage("/login")
+                //
                 .defaultSuccessUrl("/", true)
                 .failureUrl("/login?error=true")
                 .permitAll()
@@ -59,7 +66,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .permitAll();
                 /*.and()
-                .csrf().disable();*/
+                ;*/
 
         /*http
                 .authorizeRequests().antMatchers("/**").permitAll()

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <title layout:title-pattern="$LAYOUT_TITLE : $CONTENT_TITLE">사용전점검</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <th:block th:include="common/component/lib/lib" th:remove="tag"></th:block>
+        <link rel="stylesheet" th:href="@{/resources/common/css/defaultLayout.css}"/>
+    </head>
+    <body class="d-flex flex-column h-100">
+        <!--header-->
+        <div th:replace="common/component/header/defaultHeader.html :: header"></div>
+
+        <div class="container">
+            <div layout:fragment="content">
+                <p>Layout Content</p>
+            </div>
+        </div>
+
+        <!--footer-->
+        <div th:replace="common/component/footer/defaultFooter.html :: footer"></div>
+    </body>
+</html>

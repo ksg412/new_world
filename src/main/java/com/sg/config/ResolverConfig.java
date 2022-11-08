@@ -30,12 +30,12 @@ public class ResolverConfig implements ApplicationContextAware {
     public SpringResourceTemplateResolver templateResolver() {
         SpringResourceTemplateResolver  templateResolver = new SpringResourceTemplateResolver();
         templateResolver.setApplicationContext(this.context);
-        templateResolver.setPrefix("/WEB-INF/view/");
+        templateResolver.setPrefix("classpath:templates/");
         templateResolver.setCharacterEncoding("UTF-8");
         templateResolver.setSuffix(".html");
-        //templateResolver.setTemplateMode("LEGACYHTML5");
+        /*templateResolver.setTemplateMode("HTML5");*/
         templateResolver.setTemplateMode(TemplateMode.HTML);
-        templateResolver.setCacheable(true);
+        templateResolver.setCacheable(false);
         return templateResolver;
     }
 

@@ -19,13 +19,13 @@ import java.util.Optional;
 @Service
 public class CustomUserDetailServiceImpl implements UserDetailsService {
 
-    /*@Autowired
-    private CustomUserDetailMapper customUserDetailMapper;*/
+    @Autowired
+    private CustomUserDetailMapper customUserDetailMapper;
 
     @Override
     public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
 
-        /*UserVo userVo = customUserDetailMapper.getUserbyId(id);
+        UserVo userVo = customUserDetailMapper.getUserbyId(id);
 
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         userVo.setPw(passwordEncoder.encode("test01.html"));
@@ -38,8 +38,8 @@ public class CustomUserDetailServiceImpl implements UserDetailsService {
             userRoleVoList.add(userRoleVo);
             userVo.setUserRoleVoList(userRoleVoList);
         }
-*/
-        UserVo userVo = new UserVo();
+
+
 
         return Optional.ofNullable(userVo)
                 .filter(m -> m!= null)
