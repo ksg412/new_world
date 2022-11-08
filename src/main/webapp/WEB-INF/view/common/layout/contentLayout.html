@@ -3,15 +3,13 @@
     <head>
         <title layout:title-pattern="$LAYOUT_TITLE : $CONTENT_TITLE">사용전점검</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <script type="text/javascript" th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"></script>
-        <script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.2/js/bootstrap.min.js}"></script>
-        <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.2/css/bootstrap.min.css}"/>
+        <th:block th:include="common/component/lib/lib" th:remove="tag"></th:block>
     </head>
     <body>
-        <section layout:fragment="content">
-            <div>
+        <div class="container">
+            <div layout:fragment="content">
                 <p>Layout Content</p>
             </div>
-        </section>
+        </div>
     </body>
 </html>
