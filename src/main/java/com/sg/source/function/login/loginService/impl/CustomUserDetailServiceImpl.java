@@ -5,6 +5,7 @@ import com.sg.source.common.vo.UserRoleVo;
 import com.sg.source.common.vo.UserVo;
 import com.sg.source.function.login.loginMapper.CustomUserDetailMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -18,13 +19,13 @@ import java.util.Optional;
 @Service
 public class CustomUserDetailServiceImpl implements UserDetailsService {
 
-    @Autowired
-    private CustomUserDetailMapper customUserDetailMapper;
+    /*@Autowired
+    private CustomUserDetailMapper customUserDetailMapper;*/
 
     @Override
     public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
 
-        UserVo userVo = customUserDetailMapper.getUserbyId(id);
+        /*UserVo userVo = customUserDetailMapper.getUserbyId(id);
 
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         userVo.setPw(passwordEncoder.encode("test01.html"));
@@ -37,10 +38,13 @@ public class CustomUserDetailServiceImpl implements UserDetailsService {
             userRoleVoList.add(userRoleVo);
             userVo.setUserRoleVoList(userRoleVoList);
         }
+*/
+        UserVo userVo = new UserVo();
 
         return Optional.ofNullable(userVo)
                 .filter(m -> m!= null)
                 .map(m -> new SecurityVo(m)).get();
+
     }
 
 }
