@@ -22,11 +22,6 @@
         </repository>
 
         <!--<repository>
-            <id>repo2</id>
-            <name>repo2</name>
-            <url>https://mvnrepository.com/artifact/org.bgee.log4jdbc-log4j2/log4jdbc-log4j2-jdbc4</url>
-        </repository>-->
-        <!--<repository>
             <id>local-repo1</id>
             <name>local Repository</name>
             <url>file://${project.basedir}/repository</url>
@@ -135,8 +130,18 @@
             <groupId>uk.gov.gchq.gaffer</groupId>
             <artifactId>bitmap-library</artifactId>
             <version>0.6.2</version>
-            <!--<systemPath>${project.basedir}/repository/uk/gov/gchq/gaffer/bitmap-library/0.6.2/bitmap-library-0.6.2.jar</systemPath>-->
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
+        <!--<systemPath>${project.basedir}/repository/uk/gov/gchq/gaffer/bitmap-library/0.6.2/bitmap-library-0.6.2.jar</systemPath>-->
         <dependency>
             <groupId>com.monitorjbl</groupId>
             <artifactId>xlsx-streamer</artifactId>
@@ -155,13 +160,13 @@
             <version>5.1.27</version>
             <scope>compile</scope>
         </dependency>-->
-        <dependency>
+        <!--<dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.26</version>
-            <!--<systemPath>${project.basedir}/repository/mysql/mysql-connector-java/8.0.26/mysql-connector-java-8.0.26.jar</systemPath>-->
+            &lt;!&ndash;<systemPath>${project.basedir}/repository/mysql/mysql-connector-java/8.0.26/mysql-connector-java-8.0.26.jar</systemPath>&ndash;&gt;
         </dependency>
-
+-->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>

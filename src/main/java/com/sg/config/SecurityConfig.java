@@ -1,7 +1,8 @@
 package com.sg.config;
 
 import com.sg.source.function.login.loginService.impl.CustomUserDetailServiceImpl;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +18,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private static final Logger logger = Logger.getLogger(SecurityConfig.class);
+    private static final Logger logger = LoggerFactory.getLogger(SecurityConfig.class);
 
     @Autowired
     CustomUserDetailServiceImpl customUserDetailsService;
@@ -68,19 +69,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/login")
                 .invalidateHttpSession(true)
                 .permitAll();
-                /*.and()
-                ;*/
 
-        /*http
-                .authorizeRequests().antMatchers("/**").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .and()
-                .logout()
-                .and()
-                .exceptionHandling()
-                .and();*/
     }
 
     /*로그인 핸들러*/

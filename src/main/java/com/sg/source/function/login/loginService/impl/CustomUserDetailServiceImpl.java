@@ -25,8 +25,20 @@ public class CustomUserDetailServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
 
-        UserVo userVo = customUserDetailMapper.getUserbyId(id);
-        List<UserRoleVo> roleList = customUserDetailMapper.getUserRoleById(id);
+        UserVo userVo = new UserVo();
+        List<UserRoleVo> roleList = new ArrayList<>();
+
+        //TODO 임시 로그인 처리 test/test else부분은 살리고 if부분 삭제
+        if(id.equals("test")){
+            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+            userVo.setPassword(passwordEncoder.encode("test"));
+            userVo.setUserId("test");
+        }else{
+            userVo = customUserDetailMapper.getUserbyId(id);
+            roleList = customUserDetailMapper.getUserRoleById(id);
+        }
+
+
         if(roleList.size() == 0){
             UserRoleVo userRoleVo = new UserRoleVo();
             userRoleVo.setAuthCode("ROLL_USER");

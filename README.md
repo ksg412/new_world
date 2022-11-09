@@ -5,6 +5,7 @@ spring-boot 샘플 프로젝트
 - file, excel, image UTIL 적용
 - 로그인 로그아웃 완료
 - USER 및 AUTH 테이블 완료
+- log4j 충돌 개선
 
 테이블명명 규칙
 - 일반테이블 TB_
@@ -18,9 +19,9 @@ ROLL
 
 TODO LIST
 - 트렌젝션 처리 확인
-- grid 검토
-- chart 검토
-- excel 업/다운
-- 파일 업/다운
-- readme 쿠키 처리
+- grid 검토 -> datatables mit라이센스
+- chart 검토 -> chart.js mit라이센스
+- excel 업/다운 
+- 파일 업/다운 
+- remember me 쿠키 처리 
 - 

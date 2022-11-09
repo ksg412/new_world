@@ -1,6 +1,5 @@
 package com.sg.config;
 
-import com.google.common.base.CaseFormat;
 import com.sg.source.common.annotation.Mapper;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -11,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 import javax.sql.DataSource;
-import java.util.HashMap;
 
 @Configuration
 @MapperScan(basePackages = "com.sg", annotationClass = Mapper.class)
