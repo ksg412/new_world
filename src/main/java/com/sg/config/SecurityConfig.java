@@ -29,28 +29,28 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(customUserDetailsService).passwordEncoder(passwordEncoder());
+        auth.userDetailsService(customUserDetailsService);
     }
 
     @Override
     public void configure(WebSecurity web) throws Exception
     {
-        web.ignoring().antMatchers("/resources/**", "/webjars/**");
+        web.ignoring().antMatchers("/webjars/**");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception
     {
-        /*String[] resources = new String[]{
-                "/js/**", "/css/**", "/resources/**", "/webjars/**"
-        };*/
+        String[] resources = new String[]{
+                "/common/**", "/image/**", "/lib/**"
+        };
 
         logger.info("XXX configure HTTP User detail org.himanshu.service");
 
         http
                 //.csrf().disable()
                 .authorizeRequests()
-                //.antMatchers(resources).permitAll()
+                .antMatchers(resources).permitAll()
                 //.antMatchers("/admin/**").hasAnyRole("ADMIN")
                 //.antMatchers("/user/**").hasAnyRole("USER", "ADMIN")
                 .anyRequest()
@@ -59,11 +59,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/login")
                 //
-                .defaultSuccessUrl("/", true)
+                //.defaultSuccessUrl("/", true)
                 .failureUrl("/login?error=true")
                 .permitAll()
                 .and()
                 .logout()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/login")
+                .invalidateHttpSession(true)
                 .permitAll();
                 /*.and()
                 ;*/

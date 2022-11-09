@@ -20,6 +20,12 @@
             <name>repo</name>
             <url>https://mvnrepository.com/artifact/org.webjars/bootstrap</url>
         </repository>
+
+        <!--<repository>
+            <id>repo2</id>
+            <name>repo2</name>
+            <url>https://mvnrepository.com/artifact/org.bgee.log4jdbc-log4j2/log4jdbc-log4j2-jdbc4</url>
+        </repository>-->
         <!--<repository>
             <id>local-repo1</id>
             <name>local Repository</name>
@@ -111,28 +117,6 @@
             <version>3.9</version>
         </dependency>
         <dependency>
-            <groupId>org.lazyluke</groupId>
-            <artifactId>log4jdbc-remix</artifactId>
-            <version>0.2.7</version> <!--버전업필요-->
-            <exclusions>
-                <exclusion>
-                    <artifactId>slf4j-api</artifactId>
-                    <groupId>org.slf4j</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <!--<dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.2.3</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>slf4j-api</artifactId>
-                    <groupId>org.slf4j</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>-->
-        <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
             <version>3.16</version>
@@ -194,6 +178,18 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
             <version>2.12.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bgee.log4jdbc-log4j2</groupId>
+            <artifactId>log4jdbc-log4j2-jdbc4</artifactId>
+            <version>1.16</version>
         </dependency>
     </dependencies>
 

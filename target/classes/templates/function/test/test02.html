@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="common/layout/defaultLayout">
+<head>
+    <script type="text/javascript">
+        function testAjax(){
+            $.ajax({
+                url: "/test/ajax",// 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소
+                data: JSON.stringify({ name : "홍길동" }),  // HTTP 요청과 함께 서버로 보낼 데이터*/
+                success : function(data) {
+                    console.log(data);
+                    var jObj = JSON.stringify(data);
+                    $("#ajaxTextarea").html(jObj);
+                }
+            });
+        }
+    </script>
+</head>
+<body layout:fragment="content">
+    <main class="flex-shrink-0">
+        <div class="container">
+            <h4 class="mb-3">AJAX 관련 테스트</h4>
+            <div class="row g-3">
+                <div class="col-12">
+                    <div>
+                        <label class="form-label">기본 AJAX 요청 응답</label>
+                    </div>
+                    <div>
+                        <a class="btn btn-primary btn-sm" onclick="testAjax()">누르면 쿼리 실행</a>
+                    </div>
+                    <div>
+                        <textarea id="ajaxTextarea" class="form-control" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="input-group has-validation">
+                        <label class="form-label">기본 AJAX 요청 응답</label>
+                    </div>
+                    <div class="input-group has-validation">
+                        <a class="btn btn-primary btn-sm" onclick="testAjax()">누르면 쿼리 실행</a>
+                    </div>
+                    <div class="input-group has-validation">
+                        <textarea id="22222" class="form-control" rows="3"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

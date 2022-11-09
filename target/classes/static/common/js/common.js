@@ -1,3 +1,4 @@
+
 var token = $("meta[name='_csrf']").attr("content");
 var header = $("meta[name='_csrf_header']").attr("content");
 var options={
@@ -15,16 +16,23 @@ var options={
 
 $.ajaxSetup( options );
 
-/*
+
+
 (function(window){
     Query.ajaxSetup( options );
     alert("aa");
+
+
 });
-*/
+
 
 
 
 
 function aaa(){
     alert('aa');
+}
+
+function securityLogout(){
+    $("#logout_form").attr("action","/logout").submit();
 }

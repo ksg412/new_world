@@ -22,11 +22,4 @@ public class MainController {
         map.put("data",data);*/
         return "function/user/main/main";
     }
-
-    @RequestMapping("/test01")
-    public String test01() throws Exception{
-
-
-        return "function/test/test01";
-    }
 }

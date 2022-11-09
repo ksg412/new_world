@@ -7,40 +7,40 @@ import java.util.Date;
 
 @EqualsAndHashCode(callSuper = false)
 public class BaseVO implements Serializable {
-    private String registNo;
-    private Date registDt;
-    private String updateNo;
-    private Date updateDt;
+    private String regId;
+    private Date regDt;
+    private String mdfcnId;
+    private Date mdfcnDt;
 
-    public String getRegistNo() {
-        return registNo;
+    public String getRegId() {
+        return regId;
     }
 
-    public void setRegistNo(String registNo) {
-        this.registNo = registNo;
+    public void setRegId(String regId) {
+        this.regId = regId;
     }
 
-    public Date getRegistDt() {
-        return registDt;
+    public Date getRegDt() {
+        return regDt;
     }
 
-    public void setRegistDt(Date registDt) {
-        this.registDt = registDt;
+    public void setRegDt(Date regDt) {
+        this.regDt = regDt;
     }
 
-    public String getUpdateNo() {
-        return updateNo;
+    public String getMdfcnId() {
+        return mdfcnId;
     }
 
-    public void setUpdateNo(String updateNo) {
-        this.updateNo = updateNo;
+    public void setMdfcnId(String mdfcnId) {
+        this.mdfcnId = mdfcnId;
     }
 
-    public Date getUpdateDt() {
-        return updateDt;
+    public Date getMdfcnDt() {
+        return mdfcnDt;
     }
 
-    public void setUpdateDt(Date updateDt) {
-        this.updateDt = updateDt;
+    public void setMdfcnDt(Date mdfcnDt) {
+        this.mdfcnDt = mdfcnDt;
     }
 }

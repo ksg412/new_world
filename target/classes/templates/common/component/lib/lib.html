@@ -5,13 +5,14 @@
         <meta name="_csrf" th:content="${_csrf.token}">
 
         <!--js-->
-        <script type="text/javascript" th:src="@{/resources/lib/jquery-3.6.0/jquery-3.6.0.js}"></script>
-        <!--<script type="text/javascript" th:src="@{/resources/lib/bootstrap-5.1.1/js/bootstrap.js}"></script>-->
-        <script type="text/javascript" th:src="@{/resources/common/js/common.js}"></script>
+        <script type="text/javascript" th:src="@{/lib/jquery-3.6.0/jquery-3.6.0.js}"></script>
+        <script type="text/javascript" th:src="@{/lib/DataTables/datatables.js}"></script>
+        <script type="text/javascript" th:src="@{/common/js/common.js}"></script>
         <script type="text/javascript" th:src="@{/webjars/bootstrap/5.2.2/js/bootstrap.min.js}"></script>
 
+
         <!--css-->
-        <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.2/css/bootstrap.css}"/>
-        <link rel="stylesheet" th:href="@{/resources/common/css/common.css}"/>
+        <link rel="stylesheet" th:href="@{/lib/DataTables/datatables.css}"/>
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.2/css/bootstrap.min.css}"/>
     </head>
 </html>

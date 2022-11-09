@@ -3,8 +3,23 @@
 <mapper namespace="com.sg.source.function.login.loginMapper.CustomUserDetailMapper">
     <select id="getUserbyId" resultType="com.sg.source.common.vo.UserVo">
         SELECT
-            #{id} AS ID
-            ,'$2a$10$iIwzDbDk.XibvzjQ3V7yfOh5TpEhG1aJsOAOC8KrCptxiFDEnyUhG' AS PW
-        from dual
+            USER_ID
+            ,PASSWORD
+            ,MBL_TELNO
+            ,EMAIL
+            ,USE_YN
+            ,REG_DT
+            ,MDFCN_DT
+        from ST_USER
+        WHERE USER_ID = #{id}
+    </select>
+
+    <select id="getUserRoleById" resultType="com.sg.source.common.vo.UserRoleVo">
+        SELECT
+            USER_ID
+	        ,AUTH_CODE
+	        ,REG_DT
+        FROM ST_USER_AUTH
+        WHERE USER_ID = #{id}
     </select>
 </mapper>

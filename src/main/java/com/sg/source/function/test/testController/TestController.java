@@ -18,10 +18,34 @@ public class TestController {
     @Autowired
     TestService testService;
 
-    @RequestMapping("/test")
-    public String test() throws Exception{
+    @RequestMapping("/test01")
+        public String test01() throws Exception{
+        return "function/test/test01";
+    }
 
-    return "function/test/test01";
+    @RequestMapping("/test02")
+    public String test02() throws Exception{
+        return "function/test/test02";
+    }
+
+    @RequestMapping("/test03")
+    public String test03() throws Exception{
+        return "function/test/test03";
+    }
+
+    @RequestMapping("/test04")
+    public String test04() throws Exception{
+        return "function/test/test04";
+    }
+
+    @RequestMapping("/test05")
+    public String test05() throws Exception{
+        return "function/test/test05";
+    }
+
+    @RequestMapping("/test06")
+    public String test06() throws Exception{
+        return "function/test/test06";
     }
 
     @ResponseBody
@@ -30,6 +54,10 @@ public class TestController {
 
         Map returnMap = new HashMap();
         returnMap.put("aaa", "aaa");
+        returnMap.put("bbb", "bbb");
+        returnMap.put("ccc", "ccc");
+        returnMap.put("ddd", "ddd");
+        returnMap.put("eee", "eee");
         return returnMap;
     }
 }
