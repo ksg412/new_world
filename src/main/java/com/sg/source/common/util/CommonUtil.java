@@ -1,6 +1,8 @@
 package com.sg.source.common.util;
 
+import com.google.common.collect.ImmutableMap;
 import com.sg.source.common.annotation.Excel;
+import lombok.Builder;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -523,6 +525,16 @@ public class CommonUtil {
         }
         return today;
     }
-
+    
+    /**
+     * datatable 페이징 리턴값 생성
+     * @param draw 페이지번호
+     * @param data 목록 데이터
+     * @param recordsTotal 전체목록카운트
+     * @return map
+     */
+    public static Map datatableReturn(Integer draw, List data, Integer recordsTotal) {
+        return ImmutableMap.builder().put("draw", draw).put("data", data).put("recordsTotal", recordsTotal).put("recordsFiltered", recordsTotal).build();
+    }
     //TODO HTTP CLIENT
 }

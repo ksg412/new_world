@@ -25,8 +25,10 @@ public class DataSourceConfig {
 
         // mybatis 설정 파일 세팅
         sqlSessionFactoryBean.setConfigLocation(new PathMatchingResourcePatternResolver().getResource("classpath:/mybatis/mybatis-config.xml"));
+
         return sqlSessionFactoryBean.getObject();
     }
+
 
     @Bean
     public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory){

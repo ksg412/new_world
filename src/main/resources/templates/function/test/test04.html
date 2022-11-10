@@ -1,25 +1,176 @@
 <!DOCTYPE HTML>
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="common/layout/defaultLayout">
 <head>
-    <script type="text/javascript">
-        function testAjax(){
-            $.ajax({
-                url: "/test/ajax",// 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소
-                data: JSON.stringify({ name : "홍길동" }),  // HTTP 요청과 함께 서버로 보낼 데이터*/
-                success : function(data) {
-                    console.log(data);
-                }
-            });
-        }
-    </script>
+
 </head>
 <body layout:fragment="content">
-    <div class="card m-5">
-        <div class="card-body">
-            <h5 class="card-title">ajax 쿼리 테스트</h5>
-            <button class="btn btn-primary" onclick="testAjax()">누르면 쿼리 실행</button>
-            <p class="card-text"></p>
+<div>
+    <main class="flex-shrink-0">
+        <div class="container">
+            <h4 class="mt-3 mb-4">echart 테스트</h4>
+        </div>
+    </main>
+    <div class="container px-4 py-5" id="featured-3">
+        <h2 class="pb-2 border-bottom">바차트</h2>
+        <div class="row">
+            <div class="feature col-6">
+                <div id="bar1" style="width: 600px;height:400px;"></div>
+            </div>
+            <div class="feature col-6">
+                <div id="bar2" style="width: 600px;height:400px;"></div>
+            </div>
+        </div>
+
+        <h2 class="pb-2 border-bottom">파이차트</h2>
+        <div class="row">
+            <div class="feature col-6">
+                <div id="pie1" style="width: 600px;height:400px;"></div>
+            </div>
+            <div class="feature col-6">
+                <div id="line01" style="width: 600px;height:400px;"></div>
+            </div>
         </div>
     </div>
+
+
+
+    <!--<div id="main" style="width: 600px;height:400px;"></div>-->
+    <script type="text/javascript">
+        var bar1 = echarts.init(document.getElementById('bar1'));
+        var bar2 = echarts.init(document.getElementById('bar2'));
+        var baroption = {
+            title: {
+                text: 'aaaa'
+            },
+            tooltip: {},
+            legend: {
+                data: ['sales']
+            },
+            xAxis: {
+                data: ['Shirts', 'Cardigans', 'Chiffons', 'Pants', 'Heels', 'Socks']
+            },
+            yAxis: {},
+            series: [
+                {
+                    name: 'sales',
+                    type: 'bar',
+                    data: [5, 20, 36, 10, 10, 20]
+                }
+            ]
+        };
+        bar1.setOption(baroption);
+        bar2.setOption(baroption);
+
+        var pie1 = echarts.init(document.getElementById('pie1'));
+
+
+        var pieoption = {
+            title: {
+                text: 'Referer of a Website',
+                subtext: 'Fake Data',
+                left: 'center'
+            },
+            tooltip: {
+                trigger: 'item'
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left'
+            },
+            series: [
+                {
+                    name: 'Access From',
+                    type: 'pie',
+                    radius: '50%',
+                    data: [
+                        { value: 1048, name: 'Search Engine' },
+                        { value: 735, name: 'Direct' },
+                        { value: 580, name: 'Email' },
+                        { value: 484, name: 'Union Ads' },
+                        { value: 300, name: 'Video Ads' }
+                    ],
+                    emphasis: {
+                        itemStyle: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+        pie1.setOption(pieoption);
+
+
+        var line01 = echarts.init(document.getElementById('line01'));
+        var lineoption;
+
+        lineoption = {
+            title: {
+                text: 'Stacked Line'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['Email', 'Union Ads', 'Video Ads', 'Direct', 'Search Engine']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [
+                {
+                    name: 'Email',
+                    type: 'line',
+                    stack: 'Total',
+                    data: [120, 132, 101, 134, 90, 230, 210]
+                },
+                {
+                    name: 'Union Ads',
+                    type: 'line',
+                    stack: 'Total',
+                    data: [220, 182, 191, 234, 290, 330, 310]
+                },
+                {
+                    name: 'Video Ads',
+                    type: 'line',
+                    stack: 'Total',
+                    data: [150, 232, 201, 154, 190, 330, 410]
+                },
+                {
+                    name: 'Direct',
+                    type: 'line',
+                    stack: 'Total',
+                    data: [320, 332, 301, 334, 390, 330, 320]
+                },
+                {
+                    name: 'Search Engine',
+                    type: 'line',
+                    stack: 'Total',
+                    data: [820, 932, 901, 934, 1290, 1330, 1320]
+                }
+            ]
+        };
+
+        lineoption && line01.setOption(lineoption);
+
+    </script>
+</div>
 </body>
 </html>

@@ -1,5 +1,6 @@
 package com.sg.source.function.test.testController;
 
+import com.sg.source.common.util.CommonUtil;
 import com.sg.source.function.test.testService.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -9,7 +10,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.*;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -59,5 +62,23 @@ public class TestController {
         returnMap.put("ddd", "ddd");
         returnMap.put("eee", "eee");
         return returnMap;
+    }
+
+    @ResponseBody
+    @RequestMapping("/test/datatables")
+    public Object testDatatables(@RequestBody Map<String,Object> param) throws Exception{
+
+        return CommonUtil.datatableReturn(
+                (Integer) param.get("draw"),
+                testService.selectTbUserList(param),
+                testService.selectTbUserCnt(param)
+        );
+    }
+
+    @RequestMapping("/test/upload")
+    public String testUpload() throws Exception{
+
+
+        return null;
     }
 }
