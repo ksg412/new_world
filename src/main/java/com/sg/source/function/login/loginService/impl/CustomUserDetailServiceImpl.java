@@ -28,7 +28,7 @@ public class CustomUserDetailServiceImpl implements UserDetailsService {
         UserVo userVo = new UserVo();
         List<UserRoleVo> roleList = new ArrayList<>();
 
-        //TODO 임시 로그인 처리 test/test else부분은 살리고 if부분 삭제
+        //TODO 임시 로그인 처리 test/test. 추후에 else부분은 살리고 if부분 삭제
         if(id.equals("test")){
             BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
             userVo.setPassword(passwordEncoder.encode("test"));
