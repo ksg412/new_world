@@ -26,5 +26,6 @@
 - 파일 업/다운
 - remember me 쿠키 처리 
 - spring 배치 세팅
-- 공통코드
+- 공통코드, 공통코드 thymeleaf에서 service 호출하는 방식 적용
+- thymeleaf formatter 확인 및 적용
 - select box 처리
