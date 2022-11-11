@@ -1,0 +1,7 @@
+/*dataTables_scrollBody{
+    border-left: 0px solid red !important;
+}*/
+
+div.dataTables_scrollBody {
+     border-left: 0px solid #ddd !important;
+}

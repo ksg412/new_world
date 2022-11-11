@@ -1,7 +1,9 @@
 package com.sg.source.common.util;
 
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Iterators;
 import com.sg.source.common.annotation.Excel;
+import com.sg.source.common.vo.FileVO;
 import lombok.Builder;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -13,8 +15,12 @@ import org.springframework.web.context.ContextLoader;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
@@ -30,6 +36,11 @@ public class CommonUtil {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return userDetails;
     }
+
+    public static String getUploadPath(MultipartHttpServletRequest request){
+        return request.getSession().getServletContext().getRealPath("uploadFile");
+    }
+
 
     /**
      * Empty 여부를 확인한다.
@@ -536,5 +547,45 @@ public class CommonUtil {
     public static Map datatableReturn(Integer draw, List data, Integer recordsTotal) {
         return ImmutableMap.builder().put("draw", draw).put("data", data).put("recordsTotal", recordsTotal).put("recordsFiltered", recordsTotal).build();
     }
+
+    /**
+     * request를 Map으로 변경
+     * @param request
+     * @return map
+     */
+
+    public static Map requestToMap(MultipartHttpServletRequest request){
+        HashMap<String, Object> map = new HashMap<String, Object>();
+
+        Enumeration<String> enumber = request.getParameterNames();
+
+        while (enumber.hasMoreElements()) {
+            String key = enumber.nextElement().toString();
+            String value = request.getParameter(key);
+
+            map.put(key, value);
+        }
+        return map;
+    }
+
+    public static List requestToFileVOList(MultipartHttpServletRequest request) throws Exception {
+
+        List<FileVO> fileVOList = new ArrayList<>();
+
+        Iterator<String> itr =  request.getMultiFileMap().keySet().iterator();
+        Map<String, List<MultipartFile>> paramMap = request.getMultiFileMap();
+        String path = getUploadPath(request);
+
+        while(itr.hasNext()){
+            MultipartFile mpf = request.getFile(itr.next());
+            System.out.println(mpf.getOriginalFilename() +" uploaded!");
+            System.out.println("file length : " + mpf.getBytes().length);
+            System.out.println("file name : " + mpf.getOriginalFilename());
+            FileVO fileVO = FileUtil.fileUpload(mpf,path,mpf.getOriginalFilename());
+            fileVOList.add(fileVO);
+        }
+        return fileVOList;
+    }
+
     //TODO HTTP CLIENT
 }
